@@ -12,11 +12,9 @@ import {
 } from "react-pro-sidebar";
 
 //import icons from react icons
-import { FaList, FaRegHeart } from "react-icons/fa";
-import { FiHome, FiLogOut, FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
-import { RiPencilLine } from "react-icons/ri";
-import { BiCog } from "react-icons/bi";
-
+import {FaPlus,FaImages} from "react-icons/fa";
+import{ MdOutlineWidgets,MdNoteAdd} from "react-icons/md";
+import {  FiLogOut, FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
 
 //import sidebar css from react-pro-sidebar module and our custom css 
 import "react-pro-sidebar/dist/css/styles.css";
@@ -42,7 +40,7 @@ const Header = () => {
           <SidebarHeader>
           <div className="logotext">
               {/* small and big change using menucollapse state */}
-              <p>{menuCollapse ? "Logo" : "Big Logo"}</p>
+              <p>{menuCollapse ? "AB" : "AB Suite Canvas"}</p>
             </div>
             <div className="closemenu" onClick={menuIconClick}>
                 {/* changing menu collapse icon on click */}
@@ -54,19 +52,19 @@ const Header = () => {
             </div>
           </SidebarHeader>
           <SidebarContent>
-            <Menu iconShape="square">
-              <MenuItem active={true} icon={<FiHome />}>
-                Home
+          <Menu iconShape="square">
+              <MenuItem active={true} icon={<FaPlus size={30} />}>
+                Add
               </MenuItem>
-              <MenuItem icon={<FaList />}>Category</MenuItem>
-              <MenuItem icon={<FaRegHeart />}>Favourite</MenuItem>
-              <MenuItem icon={<RiPencilLine />}>Author</MenuItem>
-              <MenuItem icon={<BiCog />}>Settings</MenuItem>
+              <MenuItem icon={<MdOutlineWidgets size={30} />}>Components</MenuItem>
+              <MenuItem icon={<FaImages size={30} />}>Image/Video</MenuItem>
+              <MenuItem icon={<MdNoteAdd size={30} />}>Add Pages</MenuItem>
+              
             </Menu>
           </SidebarContent>
           <SidebarFooter>
             <Menu iconShape="square">
-              <MenuItem icon={<FiLogOut />}>Logout</MenuItem>
+              <MenuItem icon={<FiLogOut size={30}/>}>Logout</MenuItem>
             </Menu>
           </SidebarFooter>
         </ProSidebar>
