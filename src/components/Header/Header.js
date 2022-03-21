@@ -12,21 +12,23 @@ import {
 } from "react-pro-sidebar";
 
 //import icons from react icons
-import {FaPlus,FaImages} from "react-icons/fa";
-import{ MdOutlineWidgets,MdNoteAdd} from "react-icons/md";
-import {  FiLogOut, FiArrowLeftCircle, FiArrowRightCircle } from "react-icons/fi";
+import { FaPlus, FaImages } from "react-icons/fa";
+import { MdOutlineWidgets, MdNoteAdd } from "react-icons/md";
+import {
+  FiLogOut,
+  FiArrowLeftCircle,
+  FiArrowRightCircle,
+} from "react-icons/fi";
 
-//import sidebar css from react-pro-sidebar module and our custom css 
+//import sidebar css from react-pro-sidebar module and our custom css
 import "react-pro-sidebar/dist/css/styles.css";
 import "./Header.css";
 
-
 const Header = () => {
-  
-    //create initial menuCollapse state using useState hook
-    const [menuCollapse, setMenuCollapse] = useState(false)
+  //create initial menuCollapse state using useState hook
+  const [menuCollapse, setMenuCollapse] = useState(false);
 
-    //create a custom function that will change menucollapse state from false to true and true to false
+  //create a custom function that will change menucollapse state from false to true and true to false
   const menuIconClick = () => {
     //condition checking to change state from true to false and vice versa
     menuCollapse ? setMenuCollapse(false) : setMenuCollapse(true);
@@ -35,36 +37,39 @@ const Header = () => {
   return (
     <>
       <div id="header">
-          {/* collapsed props to change menu size using menucollapse state */}
+        {/* collapsed props to change menu size using menucollapse state */}
         <ProSidebar collapsed={menuCollapse}>
           <SidebarHeader>
-          <div className="logotext">
+            <div className="logotext">
               {/* small and big change using menucollapse state */}
               <p>{menuCollapse ? "AB" : "AB Suite Canvas"}</p>
             </div>
             <div className="closemenu" onClick={menuIconClick}>
-                {/* changing menu collapse icon on click */}
-              {menuCollapse ? (
-                <FiArrowRightCircle/>
-              ) : (
-                <FiArrowLeftCircle/>
-              )}
+              {/* changing menu collapse icon on click */}
+              {menuCollapse ? <FiArrowRightCircle /> : <FiArrowLeftCircle />}
             </div>
           </SidebarHeader>
           <SidebarContent>
-          <Menu iconShape="square">
-              <MenuItem active={true} icon={<FaPlus size={30} />}>
-                Add
-              </MenuItem>
-              <MenuItem icon={<MdOutlineWidgets size={30} />}>Components</MenuItem>
-              <MenuItem icon={<FaImages size={30} />}>Image/Video</MenuItem>
-              <MenuItem icon={<MdNoteAdd size={30} />}>Add Pages</MenuItem>
-              
+            <Menu iconShape="square">
+              <div className="icon1">
+                <MenuItem icon={<FaPlus size={30} />}>Add</MenuItem>
+              </div>
+              <div className="icon2">
+                <MenuItem icon={<MdOutlineWidgets size={30} />}>
+                  Components
+                </MenuItem>
+              </div>
+              <div className="icon3">
+                <MenuItem icon={<FaImages size={30} />}>Image/Video</MenuItem>
+              </div>
+              <div className="icon4">
+                <MenuItem icon={<MdNoteAdd size={30} />}>Add Pages</MenuItem>
+              </div>
             </Menu>
           </SidebarContent>
           <SidebarFooter>
             <Menu iconShape="square">
-              <MenuItem icon={<FiLogOut size={30}/>}>Logout</MenuItem>
+              <MenuItem icon={<FiLogOut size={30} />}>Logout</MenuItem>
             </Menu>
           </SidebarFooter>
         </ProSidebar>
